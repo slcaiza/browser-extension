@@ -1,0 +1,58 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ */
+
+package com.mycompany.sucesion;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author SILVIA CAIZA
+ */
+public class SUCESION {
+
+   public static void main(String[] args) {
+        Scanner leer = new Scanner(System.in);
+        int cont=1;
+        int numero=2;
+        double suma=0;
+        boolean esPrimo;
+        int fibo = 1;
+        int primero = 0;
+        int segundo = 1;
+        int signo = 1;
+        int contSignos = 0;
+        System.out.println("    Silvia Liliana Caiza Rondal    ");
+        System.out.println("Ingrese el Limite de la suceción Numerica: ");
+        int limite = leer.nextInt();
+        while(cont <= limite){
+            numero++;
+            esPrimo=true;
+            for(int div =2;div<numero;div++){
+                if(numero%div ==0){
+                    esPrimo=false;
+                }
+            }
+            if(esPrimo == true){
+                suma=suma+numero;
+                System.out.print(" "+(numero*signo)+"^"+cont+" ");
+                suma=suma+(Math.pow((numero*signo),cont));
+                cont++;
+                contSignos++;
+                if(contSignos == fibo){
+                    signo = signo * -1;
+                    fibo = primero + segundo;
+                    primero = segundo;
+                    segundo = fibo;
+                    contSignos = 0;
+                }
+            }
+        }
+         System.out.printf("suma=%f\n", suma);
+    }
+}
+
+              
+      
